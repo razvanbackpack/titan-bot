@@ -9,7 +9,7 @@
   },
   "type":"module",
   "author": "Razvan Backpack",
-  "license": "ISC",
+  "license": "GNU GPLv3",
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
     "@discordjs/rest": "^0.4.1",
