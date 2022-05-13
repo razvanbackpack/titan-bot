@@ -1,6 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-
-module.exports = {
+import { SlashCommandBuilder } from "@discordjs/builders";
+export default {
 	data: new SlashCommandBuilder()
 		.setName('slap')
 		.setDescription('Give someone a well deserver slap!')

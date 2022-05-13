@@ -1,7 +1,7 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-module.exports = {
+import { SlashCommandBuilder } from "@discordjs/builders";
+export default {
 	data: new SlashCommandBuilder()
-		.setName('about')
+		.setName('titan')
 		.setDescription('About Titan.'),
 	async execute(interaction) {
 		const aboutEmbed = {
@@ -52,7 +52,7 @@ module.exports = {
 				icon_url: 'https://i.imgur.com/AfFp7pu.png',
 			},
 		};
-		
+
 		return interaction.reply({ embeds: [aboutEmbed] });
-	},
+	}
 };

@@ -1,20 +1,23 @@
-// const fs = require('node:fs');
 import fs from "fs";
-// const { REST } = require('@discordjs/rest');
-import { REST } from "discord.js/rest";
-import { Routs } from "discord-api-types/v9";
-// const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require('./config.json');
+import { REST } from "@discordjs/rest";
+import { Routes } from "discord-api-types/v9";
+import { createRequire } from 'module';
+import { Chalk } from 'chalk';
 
+const require = createRequire(import.meta.url);
+const { token, clientId } = require("./config.json");
+
+const chalk = new Chalk();
 
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 console.log(" -- LOADING COMMANDS -- ");
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
+	const commandImport = await import(`./commands/${file}`);
+	const command = commandImport.default;
     console.log(
-        ` > ${command.data.name} loaded successfully!`
+        ` > ${chalk.blueBright(command.data.name)} loaded successfully!`
     );
 	commands.push(command.data.toJSON());
 }
