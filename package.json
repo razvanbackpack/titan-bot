@@ -1,0 +1,22 @@
+{
+  "name": "titan",
+  "version": "1.0.0",
+  "description": "Discord bot test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "type":"module",
+  "author": "Razvan Backpack",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.13.0",
+    "@discordjs/rest": "^0.4.1",
+    "axios": "^0.27.2",
+    "chalk": "^5.0.1",
+    "discord-api-types": "^0.32.1",
+    "discord.js": "^13.7.0",
+    "dotenv": "^16.0.1"
+  }
+}
