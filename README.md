@@ -1,4 +1,4 @@
-# titan-bot [![Netlify Status](https://api.netlify.com/api/v1/badges/018d754d-d07c-4780-8da6-d5e05e4e5337/deploy-status)](https://app.netlify.com/sites/scintillating-chebakia-7c4d0a/deploys)
+# titan-bot 
 Titan is a simple Discord bot developed to learn how Discord bots are made.
 
 # usage
