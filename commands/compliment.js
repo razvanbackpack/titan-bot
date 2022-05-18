@@ -1,20 +1,19 @@
 /**
- * ping.js
+ * compliment.js
  * @copyright CptBackpack
  * @author CptBackpack
  * @version 1.0
  *
  */
-
 export class Command
 {
-	name = 'Ping';
-	command = 'ping';
+	name = 'Compliment';
+	command = 'compliment';
 	description = '';
 	usage = '';
 	execute(args, message)
 	{
-		message.reply('pong');
+		message.reply('Hey, ' + args[0] + '. You look amazing today!');
 	}
 }
 

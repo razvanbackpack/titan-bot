@@ -1,46 +1,46 @@
-import fs from "fs";
+/**
+ * index.js
+ * @copyright CptBackpack
+ * @author CptBackpack
+ * @version 1.0
+ *
+ */
+
 import { Chalk } from 'chalk';
-import { Client, Collection, Intents } from 'discord.js';
+import { Client } from 'discord.js';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
-const { token, guildId } = require("./config.json");
-
+const { token } = require("./config.json");
 const chalk = new Chalk();
+
 console.log(chalk.bgBlackBright("Titan booting up..."));
-const client = new Client({ 
-    intents: [
-        Intents.FLAGS.GUILDS //find out wtf is this
-    ] 
+const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES"] });
+
+const commands = await import('./deploy-commands.js');
+const prefix = "!";
+client.on("messageCreate", function (message)
+{
+
+	if (!message.content.startsWith(prefix)) return;
+	const commandBody = message.content.slice(prefix.length);
+	const args = commandBody.split(' ');
+	const receivedCommand = args.shift().toLowerCase();
+
+
+	// TODO: figure out a better way of handling which command gets fired
+	commands.default.forEach((command) => {
+		if(command.command === receivedCommand) {
+			command.object.execute(args, message);
+			
+		}
+	})
 });
 
-await import("./deploy-commands.js");
 
-client.commands = new Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-	const commandImport = await import(`./commands/${file}`);
-	const command = commandImport.default;
-	client.commands.set(command.data.name, command);
-}
-
-client.once('ready', () => {
-    console.log(chalk.greenBright('>>> Titan successfully loaded!'));
+client.once('ready', () =>
+{
+	console.log(chalk.greenBright('>>> Titan successfully loaded!'));
 });
 client.login(token);
-client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
-
-	const command = client.commands.get(interaction.commandName);
-
-	if (!command) return;
-
-	try {
-		await command.execute(interaction);
-	} catch (error) {
-		console.error(error);
-		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-	}
-});
 
