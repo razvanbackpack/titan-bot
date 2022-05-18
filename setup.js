@@ -1,3 +1,13 @@
+/**
+ * setup.js
+ * @copyright CptBackpack
+ * @author CptBackpack
+ * @version 1.0
+ *
+ * 
+ * This small setup file will create a config.json file
+ */
+
 import fs from "fs";
 import { Chalk } from 'chalk';
 
@@ -10,7 +20,8 @@ let chalk = new Chalk();
 let configContents = '{ \
     "clientId": "",\
     "guildId": "",\
-    "token": ""\
+    "token": "",\
+    "prefix":"!"\
 }';
 
 console.log(chalk.bgBlueBright('SETUP RUNNING'));
