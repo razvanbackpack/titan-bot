@@ -6,12 +6,13 @@
  *
  */
 
+import dotenv from 'dotenv'
 import { Chalk } from 'chalk';
 import { Client } from 'discord.js';
 import { createRequire } from 'module';
-
+dotenv.config()
 const require = createRequire(import.meta.url);
-const { token } = require("./config.json");
+
 const chalk = new Chalk();
 
 console.log(chalk.bgBlackBright("Titan booting up..."));
@@ -42,5 +43,5 @@ client.once('ready', () =>
 {
 	console.log(chalk.greenBright('>>> Titan successfully loaded!'));
 });
-client.login(token);
+client.login(process.env.TITAN_TOKEN);
 
