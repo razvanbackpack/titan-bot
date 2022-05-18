@@ -1,7 +1,7 @@
 /**
  * compliment.js
- * @copyright CptBackpack
- * @author CptBackpack
+ * @copyright CptBackpack https://github.com/CptBackpack
+ * @author CptBackpack https://github.com/CptBackpack
  * @version 1.0
  *
  */
