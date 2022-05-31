@@ -1,5 +1,5 @@
 # titan-bot 
-Titan is a simple Discord bot developed to learn how Discord bots are made.
+Titan is a simple Discord bot.
 
 # usage
 Download files (either by cloning or making your own fork).
