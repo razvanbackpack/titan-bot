@@ -13,7 +13,7 @@ export class Command
 	usage = '';
 	execute(args, message)
 	{
-		message.reply('Hey, ' + args[0] + '. You fucking suck! :middle_finger:');
+		message.reply('Hey, ' + args[0] + ', :middle_finger:');
 	}
 }
 
