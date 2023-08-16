@@ -24,7 +24,7 @@ for (const file of commandFiles) {
     var obj = {};
     obj['command'] = commandObj.command;
     obj['object'] = commandObj;
-
+    console.log(' -- > LOADING ' + commandObj.command)
     commandsList.push(obj);
 }
 

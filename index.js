@@ -22,7 +22,7 @@ const commands = await import('./deploy-commands.js');
 const prefix = "!";
 client.on("messageCreate", function (message)
 {
-
+	// console.log(message.author.username + ': ' + message.content);
 	if (!message.content.startsWith(prefix)) return;
 	const commandBody = message.content.slice(prefix.length);
 	const args = commandBody.split(' ');
@@ -43,5 +43,6 @@ client.once('ready', () =>
 {
 	console.log(chalk.greenBright('>>> Titan successfully loaded!'));
 });
+
 client.login(process.env.TITAN_TOKEN);
 
